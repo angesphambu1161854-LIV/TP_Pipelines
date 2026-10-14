@@ -10,3 +10,5 @@ file.close()
 # with : Gérer les cas d'erreurs et savoir quand est-ce qu'il doit arrêter l'écriture
 with open("file.txt", "x") as file:
     file.write("Hello world")
+with open("file.txt", "w") as file :
+    file.write("AP54")
