@@ -3,13 +3,13 @@ import pandas as pd
 
 app = Flask(__name__)
 
-@app.route("", methods=["GET"])
+@app.route("/api/v1/stats/produits", methods=["GET"])
 def analyser_produits():
     # Source de données publique en ligne (JSON)
     url = "https://dummyjson.com/products"
    
     # 1. Extraction : Lecture directe du flux JSON distant
-    donnees = pd.read_json(url)
+    donnees = pd.read_json(url, storage_options = {"User-Agent": "Mozilla/5.0"})
    
     # 2. Transformation : Extraction de la liste 'products' en DataFrame
     df = pd.DataFrame(list(donnees["products"]))
